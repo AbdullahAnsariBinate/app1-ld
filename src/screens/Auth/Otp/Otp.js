@@ -148,7 +148,7 @@ const Otp = ({navigation, route}) => {
                 return (
                   <View
                     style={{
-                      backgroundColor: '#7AD8FC',
+                      backgroundColor: colors?.primary,
                       height: 100,
                       width: 100,
                       borderRadius: 100,

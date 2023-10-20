@@ -96,7 +96,7 @@ function AppBackground({
                   width: 24,
                   height: 24,
                   resizeMode: 'contain',
-                  // tintColor: colors.white,
+                  tintColor: colors.primary,
                 }}
               />
             )}
@@ -133,6 +133,8 @@ function AppBackground({
                   height: 24,
                   borderRadius: 12,
                   resizeMode: resizeMode,
+                tintColor: colors.primary,
+
                 }}
               />
             </TouchableOpacity>

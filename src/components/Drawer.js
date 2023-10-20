@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   FlatList,
   Image,
@@ -8,17 +8,17 @@ import {
   Linking,
   Dimensions,
 } from 'react-native';
-import {connect} from 'react-redux';
-import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {colors, family, size} from '../utils';
+import { connect } from 'react-redux';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { colors, family, size } from '../utils';
 import NavService from '../helpers/NavService';
-import {appIcons, appImages, appLogos} from '../assets';
+import { appIcons, appImages, appLogos } from '../assets';
 import ProfileImage from '../components/ProfileImage';
-import {logoutUser} from '../redux/actions/authAction';
+import { logoutUser } from '../redux/actions/authAction';
 import CustomText from './CustomText';
 import ModalPopup from '../containers/Popup/modalPopup/modalPopup';
 import Img from './Img';
-const {width, height} = Dimensions?.get('screen');
+const { width, height } = Dimensions?.get('screen');
 const menuItems = [
   {
     icon: appIcons.myprofile,
@@ -63,16 +63,16 @@ class Drawer extends Component {
     };
   }
   handleClose = () => {
-    this?.setState({isVisible: false});
+    this?.setState({ isVisible: false });
   };
   handleLogout = () => {
     this?.props?.logoutUser();
   };
   render() {
-    const {profileImage, isVisible} = this.state;
-    const {user} = this.props;
-    const RenderItem = ({item, index}) => {
-      const {title, icon, nav} = item;
+    const { profileImage, isVisible } = this.state;
+    const { user } = this.props;
+    const RenderItem = ({ item, index }) => {
+      const { title, icon, nav } = item;
       return (
         <TouchableOpacity
           activeOpacity={0.8}
@@ -80,7 +80,7 @@ class Drawer extends Component {
             if (title === 'Logout') {
               // this.props.logoutUser();
               NavService?.closeDrawer();
-              this?.setState({isVisible: true});
+              this?.setState({ isVisible: true });
             } else if (item?.browser) {
               Linking.openURL(item?.browser);
             } else {
@@ -114,14 +114,13 @@ class Drawer extends Component {
                 tintColor:
                   item?.title == 'Logout'
                     ? colors.white
-                    : item?.title == 'Help & Feedback'
-                    ? null
+
                     : colors.primary,
               }}
             />
           </View>
           <CustomText
-            style={{marginTop: -5}}
+            style={{ marginTop: -5 }}
             text={title}
             font={family?.Poppins_Medium}
             size={size?.xsmall}
@@ -145,12 +144,12 @@ class Drawer extends Component {
         }}>
         <TouchableOpacity
           onPress={() => NavService?.closeDrawer()}
-          style={{height: 20, width: 20, alignSelf: 'flex-end', right: 20}}>
+          style={{ height: 20, width: 20, alignSelf: 'flex-end', right: 20 }}>
           <Img
             local
             resizeMode={'contain'}
             src={appIcons.drawerback}
-            style={{height: 20, width: 20}}
+            style={{ height: 20, width: 20 }}
           />
         </TouchableOpacity>
         <View
@@ -209,7 +208,7 @@ class Drawer extends Component {
               color={colors?.white}
             />
             <CustomText
-              style={{marginTop: -4}}
+              style={{ marginTop: -4 }}
               text={user?.email}
               font={family?.Poppins_Medium}
               size={size?.xsmall}
@@ -217,7 +216,7 @@ class Drawer extends Component {
             />
           </View>
         </View>
-        <View style={{flex: 1, marginTop: height / 20, width: '100%'}}>
+        <View style={{ flex: 1, marginTop: height / 20, width: '100%' }}>
           <FlatList
             bounces={false}
             showsVerticalScrollIndicator={false}
@@ -247,10 +246,10 @@ class Drawer extends Component {
   }
 }
 
-function mapStateToProps({authReducer: {user}}) {
+function mapStateToProps({ authReducer: { user } }) {
   return {
     user: user,
   };
 }
-const actions = {logoutUser};
+const actions = { logoutUser };
 export default connect(mapStateToProps, actions)(Drawer);

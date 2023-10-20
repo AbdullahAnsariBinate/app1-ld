@@ -1,8 +1,15 @@
 export const colors = {
   // App Colors
-  primary: '#10B5FA',
 
-  secondary: '#090D5B',
+  neon_green: '#00FFB0',
+  neon_accent: '#001313',
+  primary:'#00FFB0',
+  // primary: '#10B5FA',
+
+
+  // secondary: '#090D5B',
+  secondary: '#001313',
+
   lightBlue: '#E3FCFF',
   backgroundBlue: '#ccf0fe',
   darkPrimary: '#646825',

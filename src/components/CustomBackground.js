@@ -25,8 +25,8 @@ export default ({
 }) => {
   return (
     <ImageBackground
-      source={backgroundImage? appImages.backgroundImage : null}
-      style={{flex: 1}}>
+      // source={backgroundImage? appImages.backgroundImage : null}
+      style={{flex: 1, backgroundColor:colors?.white}}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         bounces={false}
